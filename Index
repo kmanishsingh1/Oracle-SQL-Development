@@ -1,0 +1,22 @@
+-- To Know total index on table
+SELECT * FROM user_indexes WHERE TABLE_NAME = 'EMP';
+ 
+-- To get column name on which index is created
+SELECT COLUMN_NAME,K.* FROM user_ind_columns K 
+where table_name ='EMP';
+ 
+-- Detailed about index
+SELECT * FROM user_ind_statistics where table_name='EMP';
+ 
+-- To know about Functional Index
+SELECT * FROM user_ind_expressions where table_name = 'EMP';
+ 
+ 
+-- To check distinct values in column of table.
+SELECT Column_name,num_distinct from all_tab_columns 
+where table_name = 'EMP';
+ 
+-- TO check selectivity
+SELECT (distinct_keys / num_rows) AS Selectivity
+FROM user_indexes
+WHERE index_name='PKK_EMP'; 
